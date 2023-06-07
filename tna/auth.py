@@ -1,5 +1,5 @@
 #Routes for the Website
-from flask import Blueprint
+from flask import Blueprint, Flask
 
 auth = Blueprint('auth', __name__)
 
@@ -9,4 +9,5 @@ def login():
 
 @auth.route('/logout')
 def logout():
-    return "<p>Logout    </p>"
+    return "<p>Logout</p>"
+   

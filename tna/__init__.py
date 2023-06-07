@@ -1,6 +1,8 @@
-from flask import Flask
+from flask import Flask, url_for
 
 def create_app():
+    #sp = TnaServiceProvider()
+
     app = Flask(__name__)
 
     # TODO Never share - Is there any more security measure necessary???
@@ -13,5 +15,7 @@ def create_app():
     # register blueprints
     app.register_blueprint(views, url_prefix='/')
     app.register_blueprint(auth, url_prefix='/')
+
+    
 
     return app
