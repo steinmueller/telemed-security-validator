@@ -15,11 +15,12 @@ def landingpage():
 
 # TODO add functionalities for the web app
 @views.route('/home')
+@login_required
 #@oidc.require_login
 def home():
     return render_template("home.html", user=current_user)
 
 @views.route('/app')
-#@oidc.require_login
+@login_required
 def app():
     return render_template("app.html", user=current_user)

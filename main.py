@@ -4,7 +4,7 @@ from tna import get_app, views, auth
 app = get_app()
 
 from tna.views import views
-from tna.auth import auth # TODO DAS HIER IST DAS PROBLEM!!!
+from tna.auth import auth
 
 # register blueprints
 app.register_blueprint(views, url_prefix='/')
