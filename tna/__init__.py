@@ -1,7 +1,7 @@
 from flask import Flask, url_for, g, session
 #from keycloak import KeycloakOpenID
 from flask_sqlalchemy import SQLAlchemy
-from os import path
+import os
 from flask_login import LoginManager
 
 db = SQLAlchemy()
@@ -10,10 +10,10 @@ DB_NAME = "database.db"
 def create_app():
     app = Flask(__name__)
 
-    app.config.from_envvar('KEYCLOAK_FLASK_SETTINGS')
+    # app.config.from_envvar('KEYCLOAK_FLASK_SETTINGS')
 
     # # TODO Never share - Is there any more security measure necessary???
-    app.config['SECRET_KEY'] = 'abnolreizug890a349ghil23r847t90p8grhfaio'
+    app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
     # # TODO adapt to azure DB
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
 
