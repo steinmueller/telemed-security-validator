@@ -1,12 +1,6 @@
-#Routes for the Website
 from flask import Blueprint, render_template
 from flask_login import login_required, current_user
-from flask import Blueprint, render_template, request, flash, redirect, url_for
-from .models import User
-from werkzeug.security import generate_password_hash, check_password_hash
-from . import get_app
 
-app = get_app()
 views = Blueprint('views', __name__)
 
 @views.route('/', methods=['GET', 'POST'])
