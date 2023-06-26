@@ -7,6 +7,10 @@ views = Blueprint('views', __name__)
 def landingpage():
     return render_template("landingpage.html", user=current_user)
 
+@views.route('/test', methods=['GET', 'POST'])
+def test():
+    return render_template("test.html", user=current_user)
+
 # TODO add functionalities for the web app
 @views.route('/home')
 @login_required
