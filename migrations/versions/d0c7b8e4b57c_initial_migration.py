@@ -24,6 +24,7 @@ def upgrade():
     sa.Column('password', sa.String(length=500), nullable=True),
     sa.Column('first_name', sa.String(length=50), nullable=True),
     sa.Column('last_name', sa.String(length=50), nullable=True),
+    sa.Column('role', sa.String(length=50), nullable=False),
     sa.PrimaryKeyConstraint('id'))
     op.create_unique_constraint('unique_email', 'user', ['email'])
     
