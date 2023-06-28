@@ -4,6 +4,7 @@ https://github.com/techwithtim/Flask-Web-App-Tutorial/blob/main/website/template
 {% extends "base_template.html" %} {% block title %}Sign Up{% endblock %} {% block
     content %}
     <form method="POST">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
       <h3 align="center">Sign Up</h3>
       <div class="form-group">
         <label for="email">Email Address</label>
@@ -26,6 +27,16 @@ https://github.com/techwithtim/Flask-Web-App-Tutorial/blob/main/website/template
         />
       </div>
       <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="lastName"
+          name="lastName"
+          placeholder="Enter last name"
+        />
+      </div>
+      <div class="form-group">
         <label for="password1">Password</label>
         <input
           type="password"
@@ -36,7 +47,7 @@ https://github.com/techwithtim/Flask-Web-App-Tutorial/blob/main/website/template
         />
       </div>
       <div class="form-group">
-        <label for="password2">Password (Confirm)</label>
+        <label for="password2">Confirm Password</label>
         <input
           type="password"
           class="form-control"
@@ -45,7 +56,17 @@ https://github.com/techwithtim/Flask-Web-App-Tutorial/blob/main/website/template
           placeholder="Confirm password"
         />
       </div>
-      <br />
+      <div class="form-group">
+        <label for="role">Select role (Choose from doc, emt, admin)</label>
+        <input
+          type="text"
+          class="form-control"
+          id="role"
+          name="role"
+          placeholder="Enter role"
+        />
+      </div>
+      </br>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
     {% endblock %}
