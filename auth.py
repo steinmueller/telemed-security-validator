@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from flask_login import login_user, login_required, logout_user, current_user
 from werkzeug.security import check_password_hash, generate_password_hash
-from app import db
+from app import db, admin_permission
 from models import User
 
 auth = Blueprint('auth', __name__)
@@ -32,6 +32,7 @@ def logout():
     return redirect(url_for('auth.login'))
 
 @auth.route('/sign_up', methods=['GET', 'POST'])
+@admin_permission.require(http_exception=403)
 def sign_up():
     if request.method == 'POST':
         email = request.form.get('email')

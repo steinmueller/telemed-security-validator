@@ -36,15 +36,23 @@
             <ul class="navbar-nav">
               {% if user.is_authenticated %}
               <li class="nav-item">
-                <a class="nav-link" href="/home">Home</a>
-                <a class="nav-link" href="/app">App</a>
+                {% if current_user.role == "emt" %}
+                  <a class="nav-link" href="/home">Home</a>
+                {% endif %}
+                {% if current_user.role == "doc" %}
+                  <a class="nav-link" href="/home">Home</a>
+                  <a class="nav-link" href="/app">App</a>
+                {% endif %}
+                {% if current_user.role == "admin" %}
+                  <a class="nav-link" href="/sign_up">Sign Up</a>
+                {% endif %}
+                <!-- Display always, when authenticated -->
                 <a class="nav-link" href="/logout">Logout</a>
               </li>
               {% else %}
               <li class="nav-item">
                 <a class="nav-link" href="/">Home</a>
                 <a class="nav-link" href="/login">Login</a>
-                <a class="nav-link" href="/sign_up">Sign Up</a>
                 <a class="nav-link" href="/test">Test</a>
               </li>
               {% endif %}
