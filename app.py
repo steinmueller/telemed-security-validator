@@ -37,7 +37,7 @@ def on_identity_loaded(sender, identity):
     # Assuming the User model has a list of roles, update the
     # identity with the roles that the user provides
     if hasattr(current_user, 'role'):
-        identity.provides.add(RoleNeed('role'))
+        identity.provides.add(RoleNeed(current_user.role))
 
 admin_permission = Permission(RoleNeed('admin'))
 doc_permission = Permission(RoleNeed('doc'))

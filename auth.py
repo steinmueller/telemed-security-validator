@@ -1,13 +1,15 @@
-from flask import Blueprint, render_template, request, flash, redirect, url_for
+from flask import current_app, Blueprint, render_template, request, flash, redirect, url_for
 from flask_login import login_user, login_required, logout_user, current_user
 from werkzeug.security import check_password_hash, generate_password_hash
 from app import db, admin_permission
 from models import User
+from flask_principal import identity_changed, Identity
 
 auth = Blueprint('auth', __name__)
 
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
+    #print(current_user.role)
     if request.method == 'POST':
         email = request.form.get('email')
         password = request.form.get('password')
@@ -17,6 +19,9 @@ def login():
             if check_password_hash(user.password, password):
                 flash('Login successful!', category='success')
                 login_user(user, remember=True)
+                # adapt identity
+                identity_changed.send(current_app._get_current_object(),
+                                  identity=Identity(user.id))
                 return redirect(url_for('views.home'))
             else:
                 flash('Incorrect Password!', category='error')
