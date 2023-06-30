@@ -2,56 +2,34 @@
 {% block title %}Login{% endblock %} 
 
 {% block content%}
-      <!-- 2 Columns -->
-      <div class="container text-center position-absolute top-50
-      start-50 translate-middle";">
-        <div class="row align-items-center">
-          <div class="col">
-            Incoming Calls:
+      <br>
 
-            <!-- Accept or decline incoming calls-->
-            <div class="card mx-auto" style="width: 18rem;">
-              <div class="card-body">
-                <h5 class="card-title">Incoming Call</h5>
-                <p class="card-text">Unit <br> Case of Emergency</p>
-                <a href="#" class="card-link">Accept</a>
-                <a href="#" class="card-link">Decline</a>
-              </div>
-            </div>
+      Successfully logged in as {{ current_user.first_name |pprint}} {{ current_user.last_name|pprint}}
+      <br>
+      <br>
+      {% if current_user.role == "admin" %}
+        Click here to register a new user:
+        <br>
+        <br>
+        <a class="btn btn-primary" href="/sign_up"
+        role="button">Register new user</a>
+      {% endif %}
 
-          </div>
-          <div class="col">
-            Last Missions:
+      {% if current_user.role == "doc" %}
+        You are a doctor, wait for a emt staff to call for help.
+        <br>
+        <br>
+        <a class="btn btn-primary" href="/app"
+        role="button">Open App</a>
+      {% endif %}
 
-            <!--List of the last three missions-->
-            <div class="card mx-auto">
-              <div class="card-header">
-                <ul class="nav nav-tabs card-header-tabs">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="true"
-                    href="#">Last Session</a>
-                  </li>
-
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Date</a>
-                  </li>
-
-                  <li class="nav-item">
-                    <a class="nav-link">Date</a>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="card-body">
-                <h5 class="card-title">Rejoin the previous session</h5>
-                <p class="card-text">Patient Name <br> Disease <br> Unit
-                </p>
-                <a href="" class="btn btn-primary">Rejoin</a>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-      {% endblock %}
+      {% if current_user.role == "emt" %}
+        You are an emergency service staff member. Call a doctor if
+        necessary.
+        <br>
+        <br>
+        <a class="btn btn-primary" href="/app"
+        role="button">Open App</a>
+      {% endif %}
+      
+{% endblock %}
