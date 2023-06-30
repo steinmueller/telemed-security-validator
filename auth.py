@@ -3,7 +3,7 @@ from flask_login import login_user, login_required, logout_user, current_user
 from werkzeug.security import check_password_hash, generate_password_hash
 from app import db, admin_permission
 from models import User
-from flask_principal import identity_changed, Identity
+from flask_principal import identity_changed, Identity, AnonymousIdentity
 
 auth = Blueprint('auth', __name__)
 
@@ -34,6 +34,8 @@ def login():
 def logout():
     logout_user()
     flash('Logout Successful', category='success')
+    identity_changed.send(current_app._get_current_object(),
+                          identity=AnonymousIdentity())
     return redirect(url_for('auth.login'))
 
 @auth.route('/sign_up', methods=['GET', 'POST'])
