@@ -1,0 +1,5 @@
+export FLASK_APP=app.py
+export FLASK_ENV=thesis
+export SECRET_KEY=c42c7b070a2ae9243d25600449adb86d70d1026370790a83524df2cedad434ad
+source environments/thesis/bin/activate
+flask run
