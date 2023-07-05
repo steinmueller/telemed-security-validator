@@ -38,4 +38,4 @@ Show your appreciation to those who have contributed to the project.
 For open source projects, say how it is licensed.
 
 
-//TODO alternativ a94496d3-fe61-4d8d-9842-7490842f9f1b
+dbname=telemed-validation-database host=telemed-validation-server.postgres.database.azure.com port=5432 sslmode=require user=pkszjgkyih password=TC8TM8RIN1LEM473$
