@@ -9,7 +9,6 @@ class Mission(db.Model):
     # add more datatypes if necessary
     date = db.Column(db.DateTime(timezone=True), default=func.now())
     local_user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    #remote_user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
 class User(db.Model, UserMixin):
     __tablename__ = 'user'

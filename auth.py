@@ -49,6 +49,7 @@ def sign_up():
         password2 = request.form.get('password2')
         role = request.form.get('role')
 
+        # todo adapt to requirements
         user = User.query.filter_by(email=email).first()
         if user:
             flash('Email already exists.', category='error')
