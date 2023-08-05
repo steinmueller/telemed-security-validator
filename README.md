@@ -10,6 +10,26 @@ The implementation follows the requirements that have been defined in
 the thesis. With this project, a set the defined requirements will be
 tested for practicality and implementability.
 
+
+% TODO application erklären
+% Source for the web app basics:
+% %https://github.com/techwithtim/Flask-Web-App-Tutorial/blob/main/website/__init__.py 
+% Other related project:
+% %https://github.com/athanzxyt/doctordirect
+% Azure reference repositories:
+% - Video Calling
+% %https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-video-calling
+% - Azure Flask sample project:
+% %https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app
+
+% Using Bootstrap, Jinjer for scripting + JS
+
+% user roles with flask-principal
+% sqlalchemy for the db connection
+
+
+
+
 ## Installation
 The final application can be accessed at http://telemed-validation.azurewebsites.net/
 
