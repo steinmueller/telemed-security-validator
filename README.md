@@ -1,48 +1,50 @@
 # Telemedicine-Cloud-Validation
 This repository is part of a validation procedure of cybersecurity requirements
-within the master thesis with the topic "Requirements on Secure Cloud Design
+within the master thesis on the topic "Requirements on Secure Cloud Design
 for Telemedicine Applications" by Sebastian Steinmüller.
 
-The code described here implements a basic tele-emergency-doctor
-application that could allow emergency services to remotely get in
+The code described here implements a basic tele-doctor
+application that could allow medical staff to remotely get in
 contact with a doctor via a video call.
 The implementation follows the requirements that have been defined in
-the thesis. With this project, a set the defined requirements will be
-tested for practicality and implementability.
+the thesis. With this project it is tested, if the defined requirements
+and the according cloud architecture are viable.
 
+For the implementation, code from the following repositories has been
+partially reused.
+The basic structure of a flask application has been used from the
+Flask-Web-App-Tutorial by Tim Ruscica [1].
+For portaition to the Azure cloud infrastructure, code from the the Azure repositories
+msdocs-flask-postgresql-sample-app [2] and  msdocs-python-flask-webapp-quickstart
+Public [3] have been used for database integration and portation to
+Azure Web services respectively. For video calling, the Azure
+Communication Services integration from [4] has been used. The according
+Javascript code has been made executable in the browser using browserify
+[5].
+The reused code from Microsoft is available under MIT license. The code
+from Tim Ruscica ...
 
-% TODO application erklären
-% Source for the web app basics:
-% %https://github.com/techwithtim/Flask-Web-App-Tutorial/blob/main/website/__init__.py 
-% Other related project:
-% %https://github.com/athanzxyt/doctordirect
-% Azure reference repositories:
-% - Video Calling
-% %https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-video-calling
-% - Azure Flask sample project:
-% %https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app
-
-% Using Bootstrap, Jinjer for scripting + JS
-
-% user roles with flask-principal
-% sqlalchemy for the db connection
-
-
-
+For the user interface, Bootstrap has been used. Additionally Jinja has
+been used as a templating engine.
+Role-based authentication has been implemented using flask-principal and
+sqlalchemy has been used for the database connection.
 
 ## Installation
-The final application can be accessed at http://telemed-validation.azurewebsites.net/
+The final application can be accessed at
+http://telemed-validation.azurewebsites.net/.
+It is unclear, how long after completion of the thesis this link will
+stay valid.
 
 ## Usage
 The following users have been added: 
 
-doc@tna.de
-XETUg9DxdNAFov362ZRTaHwy2cAAWgJV
+Username: doc@tna.de
+Password: XETUg9DxdNAFov362ZRTaHwy2cAAWgJV
 
-emt@tna.de
-vkrmcGjuJHjuLDREn89rTT24xFGyMtd7
+Username: emt@tna.de
+Password: vkrmcGjuJHjuLDREn89rTT24xFGyMtd7
 
-The admin access won't be published.
+Furthermore an admin access is available that won't be published here.
 The following credentials can be used for the video conferencing functionality
 
 User 1:
@@ -56,7 +58,7 @@ Token: eyJhbGciOiJSUzI1NiIsImtpZCI6IjVFODQ4MjE0Qzc3MDczQUU1QzJCREU1Q0NENTQ0ODlER
 ## Roadmap
 The idea was to show the implementability of the functionalities in the
 infrastructure of a cloud hyperscaler. To deploy an actual application,
-this web app was created. Therefore the development will not continue
+this web app was created. Therefore the development will not continue.
 
 ## Contributing
 As this is part of a final thesis for a masters degree, contribution is
@@ -64,14 +66,24 @@ not possible. But feel free to fork or read more about the topic in the
 thesis.
 
 ## Acknowledgements
+This thesis has been created in cooperation with the Fraunhofer
+Institute for Applied and Integrated Security and GS Elektromedizinische
+Geräte GmbH.
 This project is based on the following resources by Microsoft under MIT License:
 
 https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app
 https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-video-calling
 
+# Sources
+[1] https://github.com/techwithtim/Flask-Web-App-Tutorial/
+[2] https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app
+[3] https://github.com/Azure-Samples/msdocs-python-flask-webapp-quickstart/blob/main/app.py
+[4] https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-video-calling
+[5] https://browserify.org/
+
 ## License
 Copyright (C) 2023 by Sebastian Steinmüller s.steinmueller@tum.de
 
-Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted.
+Permission to use, copy, modify, and/or distribute this software for any purpose without fee is hereby granted.
 
 THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
